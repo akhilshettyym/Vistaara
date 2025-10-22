@@ -3,7 +3,6 @@ import { useRouter } from 'expo-router';
 import { SafeAreaView } from "react-native-safe-area-context";
 import logo from "../assets/images/vistaara.png";
 import path from "../assets/images/path.png"
-// import dine from "../assets/images/dine.png"
 import frame from "../assets/images/frame.png"
 
 export default function Index() {
@@ -16,11 +15,11 @@ export default function Index() {
           <Image source={logo} style={{ width: 270, height: 270 }} />
 
           <View>
-            <Text className="pt-5 text-2xl text-white flex font-semibold justify-center">Reserve Moments</Text>
-            <Text className="pt-3 text-2xl text-white flex font-semibold justify-center">Not just Tables.</Text>
+            <Text className="pt-5 text-3xl text-white flex font-semibold justify-center">Reserve Moments</Text>
+            <Text className="pt-3 text-3xl text-white flex font-semibold justify-center">Not just Tables.</Text>
           </View>
           <View className="flex-l">
-            <Image source={path} className="w-full h-full" resizeMode="contain" style={{ width: 130, height: 45 }} />
+            <Image source={path} className="w-full h-full" resizeMode="contain" style={{ width: 150, height: 40 }} />
           </View>
 
           <View className="w-3/4 pt-10">
@@ -48,8 +47,6 @@ export default function Index() {
         <View className="flex-l">
           <Image source={frame} style={{ width: 450, height: 200 }} resizeMode="contain" />
         </View>
-
-
 
         <StatusBar barStyle="light-content" backgroundColor="#2b2b2b" />
       </ScrollView>
