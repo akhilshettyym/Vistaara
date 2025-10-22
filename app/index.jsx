@@ -12,7 +12,7 @@ export default function Index() {
     <SafeAreaView className={"bg-[#2b2b2b] flex-1"} >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View className="m-2 pt-10 flex justify-center items-center">
-          <Image source={logo} style={{ width: 270, height: 270 }} />
+          <Image source={logo} style={{ width: 240, height: 240 }} />
 
           <View>
             <Text className="pt-5 text-3xl text-white flex font-semibold justify-center">Reserve Moments</Text>
@@ -26,7 +26,7 @@ export default function Index() {
             <TouchableOpacity onPress={() => router.push("/signup")} className="p-2 my-2 bg-[#f49b33] text-black rounded-lg">
               <Text className="text-xl font-semibold text-center"> Sign Up </Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.push("/hom")} className="p-2 my-2 bg-[#2b2b2b] border border-[#f49b33] rounded-lg">
+            <TouchableOpacity onPress={() => router.push("/home")} className="p-2 my-2 bg-[#2b2b2b] border border-[#f49b33] rounded-lg">
               <Text className="text-xl font-semibold text-[#f49b33] text-center"> Guest User </Text>
             </TouchableOpacity>
           </View>
@@ -37,7 +37,7 @@ export default function Index() {
               <View className="border-b-2 border-[#f49b33] p-2 mb-1 w-24" />
             </Text>
 
-            <TouchableOpacity className="flex flex-row justify-center items-center" onPress={() => router.push("/singin")}>
+            <TouchableOpacity className="flex flex-row justify-center items-center" onPress={() => router.push("/signin")}>
               <Text className="text-white font-semibold">Already a User ? {" "}</Text>
               <Text className="text-base font-semibold underline text-[#f49b33]">Sign In</Text>
             </TouchableOpacity>
@@ -45,7 +45,7 @@ export default function Index() {
         </View>
 
         <View className="flex-l">
-          <Image source={frame} style={{ width: 450, height: 200 }} resizeMode="contain" />
+          <Image source={frame} style={{ width: 450, height: 260 }} resizeMode="contain" />
         </View>
 
         <StatusBar barStyle="light-content" backgroundColor="#2b2b2b" />

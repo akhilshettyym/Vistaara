@@ -6,10 +6,10 @@ import frame from "../../assets/images/frame.png"
 import { Formik } from "formik"
 import validationSchema from "../../utils/authSchema";
 
-const Signup = () => {
+const Signin = () => {
     const router = useRouter();
 
-    const handleSignup = () => {
+    const handleSignin = () => {
 
     }
 
@@ -26,20 +26,11 @@ const Signup = () => {
                     </View>
 
                     <View className="w-5/6">
-                        <Formik initialValues={{ email: "", password: "", name: "" }} validationSchema={validationSchema} onSubmit={handleSignup} >
+                        <Formik initialValues={{ email: "", password: "" }} validationSchema={validationSchema} onSubmit={handleSignin} >
                             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                                 <>
                                     <View className="w-full">
 
-                                        <Text className="text-[#f49b33] mt-4 mb-2">Name</Text>
-                                        <TextInput
-                                            className="h-10 border border-white text-white rounded px-2"
-                                            onChangeText={handleChange('name')}
-                                            value={values.name}
-                                            onBlur={handleBlur('name')} />
-                                        {touched.name && errors.name && (
-                                            <Text className="text-red-500 text-xs">{errors.name}</Text>
-                                        )}
                                         <Text className="text-[#f49b33] mt-4 mb-2">Email</Text>
                                         <TextInput className="h-10 border border-white text-white rounded px-2" keyboardType="email-address" onChangeText={handleChange("email")} values={values.email} onBlur={handleBlur("email")} />
 
@@ -53,23 +44,23 @@ const Signup = () => {
                                         {touched.password && errors.password && (
                                             <Text className="text-red-500 text-xs">{errors.password}</Text>)}
 
-                                        <TouchableOpacity onPress={handleSubmit} className="p-2 bg-[#f49b33] text-black rounded-lg mt-10">
-                                            <Text className="text-xl font-semibold text-center"> Sign Up </Text>
+                                        <TouchableOpacity onPress={handleSubmit} className="p-2 my-2 bg-[#f49b33] text-black rounded-lg mt-10">
+                                            <Text className="text-xl font-semibold text-center"> Sign In </Text>
                                         </TouchableOpacity>
                                     </View>
                                 </>
                             )}
                         </Formik>
                         <View>
-                            <TouchableOpacity className="flex flex-row justify-center items-center my-3 p-2" onPress={() => router.push("/signin")}>
-                                <Text className="text-white font-semibold">Already a User ? {" "}</Text>
-                                <Text className="text-base font-semibold underline text-[#f49b33]">Sign In</Text>
+                            <TouchableOpacity className="flex flex-row justify-center items-center my-3 p-2" onPress={() => router.push("/signup")}>
+                                <Text className="text-white font-semibold">New User ? {" "}</Text>
+                                <Text className="text-base font-semibold underline text-[#f49b33]">Sign Up</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
                 </View>
                 <View className="flex-l">
-                    <Image source={frame} style={{ width: 450, height: 125 }} resizeMode="contain" />
+                    <Image source={frame} style={{ width: 450, height: 300 }} resizeMode="contain" />
                 </View>
                 <StatusBar barStyle="light-content" backgroundColor="#2b2b2b" />
             </ScrollView>
@@ -77,4 +68,4 @@ const Signup = () => {
     )
 }
 
-export default Signup;
+export default Signin;
