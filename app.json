@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "grill-salt",
-    "slug": "grill-salt",
+    "name": "vistaara",
+    "slug": "vistaara",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "grillsalt",
+    "scheme": "vistaara",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
