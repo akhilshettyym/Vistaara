@@ -1,9 +1,10 @@
 import { Image, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from "react-native-safe-area-context";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/vistaara.png";
 import path from "../assets/images/path.png"
-// const logo = require("../assets/images/logo.png");
+// import dine from "../assets/images/dine.png"
+import frame from "../assets/images/frame.png"
 
 export default function Index() {
   const router = useRouter();
@@ -11,11 +12,18 @@ export default function Index() {
   return (
     <SafeAreaView className={"bg-[#2b2b2b] flex-1"} >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="m-2 flex justify-center items-center">
-          <Image source={logo} style={{ width: 300, height: 300 }} />
+        <View className="m-2 pt-10 flex justify-center items-center">
+          <Image source={logo} style={{ width: 270, height: 270 }} />
 
-          {/* SignIn / Guest User */}
-          <View className="w-3/4">
+          <View>
+            <Text className="pt-5 text-2xl text-white flex font-semibold justify-center">Reserve Moments</Text>
+            <Text className="pt-3 text-2xl text-white flex font-semibold justify-center">Not just Tables.</Text>
+          </View>
+          <View className="flex-l">
+            <Image source={path} className="w-full h-full" resizeMode="contain" style={{ width: 130, height: 45 }} />
+          </View>
+
+          <View className="w-3/4 pt-10">
             <TouchableOpacity onPress={() => router.push("/signup")} className="p-2 my-2 bg-[#f49b33] text-black rounded-lg">
               <Text className="text-xl font-semibold text-center"> Sign Up </Text>
             </TouchableOpacity>
@@ -36,18 +44,12 @@ export default function Index() {
             </TouchableOpacity>
           </View>
         </View>
-          
-          <View>
-            <Text>Test test test</Text>
-          </View>
 
         <View className="flex-l">
-          <Image source={""} className="w-full h-full" resizeMode="contain" />
+          <Image source={frame} style={{ width: 450, height: 200 }} resizeMode="contain" />
         </View>
 
-        <View className="flex-l">
-          <Image source={path} className="w-full h-full" resizeMode="contain" />
-        </View>
+
 
         <StatusBar barStyle="light-content" backgroundColor="#2b2b2b" />
       </ScrollView>
