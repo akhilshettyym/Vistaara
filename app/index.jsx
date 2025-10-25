@@ -1,55 +1,49 @@
-import { Image, ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
-import { useRouter } from 'expo-router';
-import { SafeAreaView } from "react-native-safe-area-context";
-import logo from "../assets/images/vistaara.png";
-import path from "../assets/images/path.png"
-import frame from "../assets/images/frame.png"
-
+import { StatusBar, Text, TouchableOpacity, View, ImageBackground } from "react-native"
+import { useRouter } from "expo-router"
+import { SafeAreaView } from "react-native-safe-area-context"
+import { LinearGradient } from "expo-linear-gradient"
+import landing from "../assets/images/landing.jpeg"
 export default function Index() {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
-    <SafeAreaView className={"bg-[#2b2b2b] flex-1"} >
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="m-2 pt-10 flex justify-center items-center">
-          <Image source={logo} style={{ width: 240, height: 240 }} />
+    <SafeAreaView className="flex-1 bg-black">
+      <LinearGradient
+        colors={["#000000", "#1ED760", "#FFFFFF"]}
+        start={{ x: 0.5, y: 1 }}
+        end={{ x: 0.5, y: 2.5 }}
+        style={{ flex: 1 }}
+      >
+        <View className="flex-1 justify-center items-center">
 
-          <View>
-            <Text className="pt-5 text-3xl text-white flex font-semibold justify-center">Reserve Moments</Text>
-            <Text className="pt-3 text-3xl text-white flex font-semibold justify-center">Not just Tables.</Text>
-          </View>
-          <View className="flex-l">
-            <Image source={path} className="w-full h-full" resizeMode="contain" style={{ width: 150, height: 40 }} />
-          </View>
+          <ImageBackground
+            source={landing}
+            style={{ width: 400, height: 150, alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }}
+            imageStyle={{ borderRadius: 10 }} >
 
-          <View className="w-3/4 pt-10">
-            <TouchableOpacity onPress={() => router.push("/signup")} className="p-2 my-2 bg-[#f49b33] text-black rounded-lg">
-              <Text className="text-xl font-semibold text-center"> Sign Up </Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.push("/home")} className="p-2 my-2 bg-[#2b2b2b] border border-[#f49b33] rounded-lg">
-              <Text className="text-xl font-semibold text-[#f49b33] text-center"> Guest User </Text>
-            </TouchableOpacity>
-          </View>
-
-          <View>
-            <Text className="text-center text-base font-semibold my-4 text-white">
-              <View className="border-b-2 border-[#f49b33] p-2 mb-1 w-24" /> or{" "}
-              <View className="border-b-2 border-[#f49b33] p-2 mb-1 w-24" />
+            <Text className="text-7xl font-bold text-black" style={{
+              position: 'absolute', zIndex: 0, textShadowColor: '#black', textShadowOffset: { width: 0, height: 0 }, textShadowRadius: 10
+            }} >
+              VISTAARA
             </Text>
+            <Text className="text-7xl font-bold text-[#1ED760]" style={{ zIndex: 1 }} > VISTAARA </Text>
+          </ImageBackground>
 
-            <TouchableOpacity className="flex flex-row justify-center items-center" onPress={() => router.push("/signin")}>
-              <Text className="text-white font-semibold">Already a User ? {" "}</Text>
-              <Text className="text-base font-semibold underline text-[#f49b33]">Sign In</Text>
-            </TouchableOpacity>
+          <View className="mb-12">
+            <Text className="text-5xl font-bold text-white mt-20">VISTAARA</Text>
+            <Text className="text-3xl font-semibold text-white mt-5 opacity-30">Reserve Moments</Text>
+            <Text className="text-3xl font-semibold text-white opacity-30">Not Just Tables</Text>
           </View>
         </View>
 
-        <View className="flex-l">
-          <Image source={frame} style={{ width: 450, height: 260 }} resizeMode="contain" />
+        <View className="pb-12 px-4 items-center">
+          <TouchableOpacity onPress={() => router.push("/signup")} className="w-4/5 bg-[#1ED760] rounded-full py-5">
+            <Text className="text-xl font-bold text-black text-center">Get Started</Text>
+          </TouchableOpacity>
         </View>
+      </LinearGradient>
 
-        <StatusBar barStyle="light-content" backgroundColor="#2b2b2b" />
-      </ScrollView>
+      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
     </SafeAreaView>
-  );
+  )
 }
