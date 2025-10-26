@@ -16,11 +16,11 @@ import { restaurants } from '../../store/restaurants';
 
 const Home = () => {
   const renderItem = ({ item }) => (
-    <TouchableOpacity className="bg-[#5f5f5f] max-h-64 max-w-xs flex justify-center rounded-lg p-4 mx-4 shadow-md">
+    <TouchableOpacity className="bg-[#5f5f5f] max-h-68 max-w-xs flex justify-center rounded-lg p-4 mx-4 shadow-md">
       <Image
         resizeMode="cover"
         source={{ uri: item.image || 'https://via.placeholder.com/150' }}
-        className="h-28 w-40 rounded-lg"
+        className="h-28 w-70 rounded-lg"
       />
       <Text className="text-white text-lg font-bold mb-2 mt-2">{item.name}</Text>
       <Text className="text-white text-base font-base mb-2">{item.address}</Text>
@@ -36,9 +36,9 @@ const Home = () => {
         paddingBottom: 30,
       }}
     >
-      <View className="flex items-center">
+      <View className="flex items-center p-7">
         <View className="bg-[#5f5f5f] w-11/12 rounded-lg shadow-lg justify-between items-center flex flex-row p-2">
-          <Text className="text-base h-10 p-2 text-white">Welcome to Vistaara</Text>
+          <Text className="text-xl h-10 p-2 text-white">Welcome to Vistaara</Text>
         </View>
       </View>
 
