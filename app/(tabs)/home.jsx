@@ -1,27 +1,15 @@
-import {
-  Image,
-  View,
-  Text,
-  Platform,
-  ScrollView,
-  ImageBackground,
-  FlatList,
-  ActivityIndicator,
-  TouchableOpacity,
-} from 'react-native';
+import { Image, View, Text, Platform, ScrollView, ImageBackground, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BlurView } from 'expo-blur';
 import banner from '../../assets/images/homeBanner.png';
+import landing from '../../assets/images/landing.jpeg';
 import { restaurants } from '../../store/restaurants';
 
 const Home = () => {
+  const name = <Text className=" font-bold text-[#1ED760]">VISTAARA</Text>;
   const renderItem = ({ item }) => (
     <TouchableOpacity className="bg-[#5f5f5f] max-h-68 max-w-xs flex justify-center rounded-lg p-4 mx-4 shadow-md">
-      <Image
-        resizeMode="cover"
-        source={{ uri: item.image || 'https://via.placeholder.com/150' }}
-        className="h-28 w-70 rounded-lg"
-      />
+      <Image resizeMode="cover" source={{ uri: item.image || 'https://via.placeholder.com/150' }} className="h-28 w-70 rounded-lg" />
       <Text className="text-white text-lg font-bold mb-2 mt-2">{item.name}</Text>
       <Text className="text-white text-base font-base mb-2">{item.address}</Text>
       <Text className="text-white text-base font-base mb-2">Open: {item.opening} - Close: {item.closing}</Text>
@@ -30,37 +18,35 @@ const Home = () => {
 
   return (
     <SafeAreaView
-      style={{
-        backgroundColor: '#2b2b2b',
-        flex: 1,
-        paddingBottom: 30,
-      }}
-    >
-      <View className="flex items-center p-7">
-        <View className="bg-[#5f5f5f] w-11/12 rounded-lg shadow-lg justify-between items-center flex flex-row p-2">
-          <Text className="text-xl h-10 p-2 text-white">Welcome to Vistaara</Text>
-        </View>
-      </View>
+      style={{ backgroundColor: '#000000', flex: 1, paddingBottom: 30 }} >
+      <ImageBackground
+        resizeMode="cover"
+        className="mb-4 w-full h-50 bg-black items-center justify-center p-7"
+        source={landing}
+        style={{ width: '100%', height: 150 }} >
+        <BlurView intensity={Platform.OS === 'android' ? 100 : 25} tint="dark" className="w-full p-2 shadow-lg" >
+          <View className="flex items-center p-6 rounded-lg">
+            <View className="bg-[#5f5f5f] w-11/12 rounded-lg shadow-lg justify-between items-center flex flex-row p-2">
+              <Text className="text-xl h-10 p-2 text-white">Welcome to {name}</Text>
+            </View>
+          </View>
+        </BlurView>
+      </ImageBackground>
 
       <ScrollView stickyHeaderIndices={[0]}>
         <ImageBackground
           resizeMode="cover"
-          className="mb-4 w-full h-52 bg-[#2b2b2b] items-center justify-center"
+          className="mb-4 w-full h-52 bg-black items-center justify-center"
           source={banner}
-          style={{ width: '100%', height: 240 }}
-        >
-          <BlurView
-            intensity={Platform.OS === 'android' ? 100 : 25}
-            tint="dark"
-            className="w-full p-2 shadow-lg"
-          >
+          style={{ width: '100%', height: 240 }} >
+          <BlurView intensity={Platform.OS === 'android' ? 100 : 25} tint="dark" className="w-full p-2 shadow-lg" >
             <Text className="text-center text-3xl font-bold text-white">
               Dine with your loved ones
             </Text>
           </BlurView>
         </ImageBackground>
 
-        <View className="p-4 bg-[#2b2b2b] flex-row items-center">
+        <View className="p-4 bg-black flex-row items-center">
           <Text className="text-2xl text-white mr-2 font-semibold">Special Discount %</Text>
         </View>
         {restaurants && restaurants.length > 0 ? (
@@ -76,9 +62,10 @@ const Home = () => {
           <ActivityIndicator animating color="#fb9b33" />
         )}
 
-        <View className="p-4 bg-[#2b2b2b] flex-row items-center">
-          <Text className="text-2xl text-[#fb9b33] mr-2 font-semibold">Our Restaurants</Text>
+        <View className="p-4 bg-black flex-row items-center">
+          <Text className="text-2xl text-[#1ED760] mr-2 font-semibold">Our Restaurants</Text>
         </View>
+
         {restaurants && restaurants.length > 0 ? (
           <FlatList
             data={restaurants}
@@ -86,8 +73,7 @@ const Home = () => {
             keyExtractor={(item, index) => item.id?.toString() || index.toString()}
             horizontal
             contentContainerStyle={{ paddingHorizontal: 16 }}
-            showsHorizontalScrollIndicator={false}
-          />
+            showsHorizontalScrollIndicator={false} />
         ) : (
           <ActivityIndicator animating color="#fb9b33" />
         )}
