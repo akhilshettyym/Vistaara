@@ -1,14 +1,39 @@
 import { Image, View, Text, Platform, ScrollView, ImageBackground, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BlurView } from 'expo-blur';
-import banner from '../../assets/images/homeBanner.png';
-import landing from '../../assets/images/landing.jpeg';
-import { restaurants } from '../../store/restaurants';
+import landing from '../../assets/images/landing.jpeg'; // Change required
+import { useEffect, useState } from 'react';
+import { collection, getDocs, query } from 'firebase/firestore';
+import { db } from '../../config/firebaseConfig';
+import { useRouter } from 'expo-router';
+
+// import { restaurants } from '../../store/restaurants';
+// import uploadData from '../../config/bulkUpload';
 
 const Home = () => {
+  // useEffect(()=> {
+  //   uploadData();
+  // }, []);
+
+  const router = useRouter();
+  const [restaurants, setRestaurants] = useState([]);
+
+  const getRestaurants = async () => {
+    const q = query(collection(db, "restaurants"));
+    const res = await getDocs(q);
+    res.forEach((item) => {
+      setRestaurants((prev) => [...prev, item.data()])
+    })
+  }
+
+  useEffect(() => {
+    getRestaurants();
+  }, []);
+
   const name = <Text className=" font-bold text-[#1ED760]">VISTAARA</Text>;
+
   const renderItem = ({ item }) => (
-    <TouchableOpacity className="bg-[#5f5f5f] max-h-68 max-w-xs flex justify-center rounded-lg p-4 mx-4 shadow-md">
+    <TouchableOpacity onPress={()=>router.push(`/restaurant/${item.name}`)} className="bg-[#5f5f5f] max-h-68 max-w-xs flex justify-center rounded-lg p-4 mx-4 shadow-md">
       <Image resizeMode="cover" source={{ uri: item.image || 'https://via.placeholder.com/150' }} className="h-28 w-70 rounded-lg" />
       <Text className="text-white text-lg font-bold mb-2 mt-2">{item.name}</Text>
       <Text className="text-white text-base font-base mb-2">{item.address}</Text>
@@ -34,7 +59,7 @@ const Home = () => {
       </ImageBackground>
 
       <ScrollView stickyHeaderIndices={[0]}>
-        <ImageBackground
+        {/* <ImageBackground
           resizeMode="cover"
           className="mb-4 w-full h-52 bg-black items-center justify-center"
           source={banner}
@@ -44,7 +69,7 @@ const Home = () => {
               Dine with your loved ones
             </Text>
           </BlurView>
-        </ImageBackground>
+        </ImageBackground> */}
 
         <View className="p-4 bg-black flex-row items-center">
           <Text className="text-2xl text-white mr-2 font-semibold">Special Discount %</Text>
