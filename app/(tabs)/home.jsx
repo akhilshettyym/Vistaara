@@ -84,7 +84,7 @@ const Home = () => {
             showsHorizontalScrollIndicator={false}
           />
         ) : (
-          <ActivityIndicator animating color="#fb9b33" />
+          <ActivityIndicator animating color="#1ED760" />
         )}
 
         <View className="p-4 bg-black flex-row items-center">
@@ -100,7 +100,7 @@ const Home = () => {
             contentContainerStyle={{ paddingHorizontal: 16 }}
             showsHorizontalScrollIndicator={false} />
         ) : (
-          <ActivityIndicator animating color="#fb9b33" />
+          <ActivityIndicator animating color="#1ED760" />
         )}
       </ScrollView>
     </SafeAreaView>
