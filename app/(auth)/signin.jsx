@@ -31,7 +31,7 @@ const Signin = () => {
                                 <>
                                     <Text className="text-[#1ED760] mt-2 mb-2 font-semibold"> Email </Text>
                                     <TextInput
-                                        className="h-15 border border-white text-white rounded px-2 bg-white/10"
+                                        className="h-11 border border-white text-white rounded px-2 bg-white/10"
                                         keyboardType="email-address"
                                         onChangeText={handleChange("email")}
                                         value={values.email}
@@ -45,7 +45,7 @@ const Signin = () => {
 
                                     <Text className="text-[#1ED760] mt-4 mb-2 font-semibold"> Password </Text>
                                     <TextInput
-                                        className="h-15 border border-white text-white rounded px-2 bg-white/10"
+                                        className="h-11 border border-white text-white rounded px-2 bg-white/10"
                                         secureTextEntry
                                         onChangeText={handleChange("password")}
                                         value={values.password}

@@ -49,13 +49,12 @@ const Restaurant = () => {
     const carouselItem = ({ item }) => {
         return (
             <View style={{ width: windowWidth - 2 }} className="h-64 relative rounded-[25px]">
-                <View style={{ position: "absolute", top: "50%", backgroundColor: "rgba(0,0,0,0.6)", borderRadius: 50, padding: 5, zIndexx: 10, right: "6%" }}>
+                <View style={{ position: "absolute", top: "40%", backgroundColor: "rgba(0,0,0,0.6)", borderRadius: 50, padding: 5, zIndex: 10, right: "6%" }}>
                     <Entypo onPress={handleNextImage} name="arrow-with-circle-right" size={30} color="white" />
                 </View>
-                <View style={{ position: "absolute", top: "50%", backgroundColor: "rgba(0,0,0,0.6)", borderRadius: 50, padding: 5, zIndexx: 10, left: "2%" }}>
+                <View style={{ position: "absolute", top: "40%", backgroundColor: "rgba(0,0,0,0.6)", borderRadius: 50, padding: 5, zIndex: 10, left: "2%" }}>
                     <Entypo onPress={handlePrevImage} name="arrow-with-circle-left" size={30} color="white" />
                 </View>
-
                 <View style={{ position: "absolute", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "row", left: "50%", transform: [{ translateX: -50 }], zIndex: 10, bottom: 15 }}>
                     {carouselData[0].images?.map((_, i) => (
                         <View key={i} className={`bg-white h-2 w-2 ${i == currentIndex && "h-3 w-3"} p-1 mx-1 rounded-full`} />
@@ -138,6 +137,7 @@ const Restaurant = () => {
             Platform.OS == "ios" && { paddingBottom: 20 }
         ]}>
             <ScrollView className="h-full">
+
                 <View className="flex-1 my-2 p-2">
                     <Text className="text-xl h-10 p-2 mb-2 text-semibold text-[#1ED760]">{restaurant}</Text>
                     <View className="border-b border border-[#1ED760]" />
@@ -169,8 +169,6 @@ const Restaurant = () => {
                         {restaurantData?.opening} - {restaurantData?.closing}
                     </Text>
                 </View>
-
-                
 
             </ScrollView>
         </SafeAreaView>

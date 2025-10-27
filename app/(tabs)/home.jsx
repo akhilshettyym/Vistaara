@@ -33,7 +33,7 @@ const Home = () => {
   const name = <Text className=" font-bold text-[#1ED760]">VISTAARA</Text>;
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={()=>router.push(`/restaurant/${item.name}`)} className="bg-[#5f5f5f] max-h-68 max-w-xs flex justify-center rounded-lg p-4 mx-4 shadow-md">
+    <TouchableOpacity onPress={() => router.push(`/restaurant/${item.name}`)} className="bg-[#5f5f5f] max-h-68 max-w-xs flex justify-center rounded-lg p-4 mx-4 shadow-md">
       <Image resizeMode="cover" source={{ uri: item.image || 'https://via.placeholder.com/150' }} className="h-28 w-70 rounded-lg" />
       <Text className="text-white text-lg font-bold mb-2 mt-2">{item.name}</Text>
       <Text className="text-white text-base font-base mb-2">{item.address}</Text>
@@ -49,7 +49,7 @@ const Home = () => {
         className="mb-4 w-full h-50 bg-black items-center justify-center p-7"
         source={landing}
         style={{ width: '100%', height: 150 }} >
-        <BlurView intensity={Platform.OS === 'android' ? 100 : 25} tint="dark" className="w-full p-2 shadow-lg" >
+        <BlurView intensity={Platform.OS === 'android' ? 100 : 25} tint="dark" className="w-full p-2 shadow-lg rounded-lg" >
           <View className="flex items-center p-6 rounded-lg">
             <View className="bg-[#5f5f5f] w-11/12 rounded-lg shadow-lg justify-between items-center flex flex-row p-2">
               <Text className="text-xl h-10 p-2 text-white">Welcome to {name}</Text>
@@ -74,34 +74,45 @@ const Home = () => {
         <View className="p-4 bg-black flex-row items-center">
           <Text className="text-2xl text-white mr-2 font-semibold">Special Discount %</Text>
         </View>
-        {restaurants && restaurants.length > 0 ? (
-          <FlatList
-            data={restaurants}
-            renderItem={renderItem}
-            keyExtractor={(item, index) => item.id?.toString() || index.toString()}
-            horizontal
-            contentContainerStyle={{ paddingHorizontal: 16 }}
-            showsHorizontalScrollIndicator={false}
-          />
-        ) : (
-          <ActivityIndicator animating color="#1ED760" />
-        )}
+
+        <View style={{ minHeight: 200, justifyContent: 'center', alignItems: 'center' }}>
+          {restaurants && restaurants.length > 0 ? (
+            <FlatList
+              data={restaurants}
+              renderItem={renderItem}
+              keyExtractor={(item, index) => item.id?.toString() || index.toString()}
+              horizontal
+              contentContainerStyle={{ paddingHorizontal: 16 }}
+              showsHorizontalScrollIndicator={false}
+            />
+          ) : (
+            <ActivityIndicator animating color="#1ED760" size="large" />
+          )}
+        </View>
+
 
         <View className="p-4 bg-black flex-row items-center">
           <Text className="text-2xl text-[#1ED760] mr-2 font-semibold">Our Restaurants</Text>
         </View>
 
-        {restaurants && restaurants.length > 0 ? (
+        <View style={{ minHeight: 200 }}>
           <FlatList
             data={restaurants}
             renderItem={renderItem}
             keyExtractor={(item, index) => item.id?.toString() || index.toString()}
             horizontal
-            contentContainerStyle={{ paddingHorizontal: 16 }}
-            showsHorizontalScrollIndicator={false} />
-        ) : (
-          <ActivityIndicator animating color="#1ED760" />
-        )}
+            contentContainerStyle={{
+              paddingHorizontal: 16,
+              justifyContent: restaurants.length === 0 ? 'center' : 'flex-start',
+              alignItems: restaurants.length === 0 ? 'center' : 'flex-start'
+            }}
+            ListEmptyComponent={
+              <ActivityIndicator animating color="#1ED760" size="large" />
+            }
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+
       </ScrollView>
     </SafeAreaView>
   );

@@ -9,7 +9,7 @@ export default function Landing() {
     return (
         <SafeAreaView className="flex-1 bg-black">
             <LinearGradient
-                colors={["#000000"]}
+                colors={['#000000', '#000000']}
                 start={{ x: 0.5, y: 1 }}
                 end={{ x: 0.5, y: 2.5 }}
                 style={{ flex: 1 }} >
@@ -17,8 +17,8 @@ export default function Landing() {
 
                     <ImageBackground
                         source={landing}
-                        style={{ width: 400, height: 150, alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }}
-                        imageStyle={{ borderRadius: 10 }} >
+                        style={{ width: 400, height: 150, alignSelf: 'center', justifyContent: 'center', alignItems: 'center'}}
+                        imageStyle={{ borderRadius: 10, opacity: 0.3 }} >
 
                         <Text className="text-7xl font-bold text-black" style={{
                             position: 'absolute', zIndex: 0, textShadowColor: '#black', textShadowOffset: { width: 0, height: 0 }, textShadowRadius: 10

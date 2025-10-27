@@ -32,7 +32,7 @@ const Signup = () => {
 
                                     <Text className="text-[#1ED760] mt-2 mb-2 font-semibold"> Name </Text>
                                     <TextInput
-                                        className="h-15 border border-white text-white rounded px-2 bg-white/10"
+                                        className="h-11 border border-white text-white rounded px-2 bg-white/10"
                                         onChangeText={handleChange("name")}
                                         value={values.name}
                                         onBlur={handleBlur("name")}
@@ -44,7 +44,7 @@ const Signup = () => {
                                     )}
 
                                     <Text className="text-[#1ED760] mt-4 mb-2 font-semibold"> Email </Text>
-                                    <TextInput className="h-15 border border-white text-white rounded px-2 bg-white/10"
+                                    <TextInput className="h-11 border border-white text-white rounded px-2 bg-white/10"
                                         keyboardType="email-address"
                                         onChangeText={handleChange("email")}
                                         value={values.email}
@@ -57,7 +57,7 @@ const Signup = () => {
                                     )}
 
                                     <Text className="text-[#1ED760] mt-4 mb-2 font-semibold"> Password </Text>
-                                    <TextInput className="h-15 border border-white text-white rounded px-2 bg-white/10"
+                                    <TextInput className="h-11 border border-white text-white rounded px-2 bg-white/10"
                                         secureTextEntry
                                         onChangeText={handleChange("password")}
                                         value={values.password}
@@ -70,7 +70,7 @@ const Signup = () => {
                                     )}
 
                                     <TouchableOpacity onPress={handleSubmit} className="p-3 bg-[#1ED760] rounded-lg mt-8">
-                                        <Text className="text-lg font-semibold text-center text-black"> Sign Up </Text>
+                                        <Text className="text-base font-bold text-center text-black"> Sign Up </Text>
                                     </TouchableOpacity>
                                 </>
                             )}
