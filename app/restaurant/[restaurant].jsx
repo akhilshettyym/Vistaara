@@ -7,6 +7,7 @@ import { db } from '../../config/firebaseConfig';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Entypo from '@expo/vector-icons/Entypo';
 import test from '../../assets/images/landing.jpeg'; // Change req
+import DatePicker from '../../components/restaurant/datePicker';
 
 const Restaurant = () => {
     const { restaurant } = useLocalSearchParams();
@@ -170,6 +171,10 @@ const Restaurant = () => {
                     </Text>
                 </View>
 
+                <View>
+                    <DatePicker />
+                </View>
+                
             </ScrollView>
         </SafeAreaView>
     )
