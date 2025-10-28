@@ -16,6 +16,9 @@ const Restaurant = () => {
     const windowWidth = Dimensions.get("window").width;
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    const [date, setDate] = useState(new Date());
+    const [selectedNumber, setSelectedNumber] = useState(2)
+
     const [restaurantData, setRestaurantData] = useState({});
     const [carouselData, setCarouselData] = useState({});
     const [slotsData, setSlotsData] = useState({});
@@ -96,7 +99,6 @@ const Restaurant = () => {
                 })
                 setCarouselData(carouselImages);
 
-
                 const slotsQuery = query(collection(db, "slots"), where("ref_id", "==", doc.ref));
                 const slotsSnapshot = await getDocs(slotsQuery);
                 const slots = [];
@@ -171,10 +173,23 @@ const Restaurant = () => {
                     </Text>
                 </View>
 
-                <View>
-                    <DatePicker />
+<View>
+                <View className="flex-1 flex-row m-2 p-2 justify-end items-center">
+                    <View className="flex-1 flex-row">
+                        <Ionicons name="calendar" size={24} color="#1ED760" />
+                        <Text className="text-white mx-2 text-base"> Select booking date </Text>
+                    </View>
+                    <DatePicker date={date} setDate={setDate} />
                 </View>
-                
+
+                <View className="flex-1 flex-row m-2 p-2 justify-end items-center">
+                    <View className="flex-1 flex-row">
+                        <Ionicons name="calendar" size={24} color="#1ED760" />
+                        <Text className="text-white mx-2 text-base"> Select number of guests </Text>
+                    </View>
+                    <DatePicker selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber} />
+                </View>
+</View>
             </ScrollView>
         </SafeAreaView>
     )
