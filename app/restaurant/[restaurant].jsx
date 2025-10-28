@@ -173,23 +173,23 @@ const Restaurant = () => {
                     </Text>
                 </View>
 
-<View>
-                <View className="flex-1 flex-row m-2 p-2 justify-end items-center">
-                    <View className="flex-1 flex-row">
-                        <Ionicons name="calendar" size={24} color="#1ED760" />
-                        <Text className="text-white mx-2 text-base"> Select booking date </Text>
+                <View>
+                    <View className="flex-1 flex-row m-2 p-2 justify-end items-center">
+                        <View className="flex-1 flex-row">
+                            <Ionicons name="calendar" size={24} color="#1ED760" />
+                            <Text className="text-white mx-2 text-base"> Select booking date </Text>
+                        </View>
+                        <DatePicker date={date} setDate={setDate} />
                     </View>
-                    <DatePicker date={date} setDate={setDate} />
-                </View>
 
-                <View className="flex-1 flex-row m-2 p-2 justify-end items-center">
-                    <View className="flex-1 flex-row">
-                        <Ionicons name="calendar" size={24} color="#1ED760" />
-                        <Text className="text-white mx-2 text-base"> Select number of guests </Text>
+                    <View className="flex-1 flex-row m-2 p-2 justify-end items-center">
+                        <View className="flex-1 flex-row">
+                            <Ionicons name="calendar" size={24} color="#1ED760" />
+                            <Text className="text-white mx-2 text-base"> Select number of guests </Text>
+                        </View>
+                        {/* <DatePicker selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber} /> */}
                     </View>
-                    <DatePicker selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber} />
                 </View>
-</View>
             </ScrollView>
         </SafeAreaView>
     )
