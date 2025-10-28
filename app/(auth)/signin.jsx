@@ -40,7 +40,7 @@ const Signin = () => {
                                         placeholderTextColor="#ccc"
                                     />
                                     {touched.email && errors.email && (
-                                        <Text className="text-red-500 text-xs mt-1"> {errors.email} </Text>
+                                        <Text className="text-white font-semibold text-xs mt-1 bg-red-50 dark:bg-red-900 dark:bg-opacity-50 px-2 py-1 rounded border border-red-200 dark:border-red-500"> {errors.email} </Text>
                                     )}
 
                                     <Text className="text-[#1ED760] mt-4 mb-2 font-semibold"> Password </Text>
@@ -54,7 +54,7 @@ const Signin = () => {
                                         placeholderTextColor="#ccc"
                                     />
                                     {touched.password && errors.password && (
-                                        <Text className="text-red-500 text-xs mt-1"> {errors.password} </Text>
+                                        <Text className="text-white font-semibold text-xs mt-1 bg-red-50 dark:bg-red-900 dark:bg-opacity-50 px-2 py-1 rounded border border-red-200 dark:border-red-500"> {errors.password} </Text>
                                     )}
 
                                     <TouchableOpacity onPress={handleSubmit} className="p-3 bg-[#1ED760] rounded-lg mt-8" >

@@ -59,17 +59,6 @@ const Home = () => {
       </ImageBackground>
 
       <ScrollView stickyHeaderIndices={[0]}>
-        {/* <ImageBackground
-          resizeMode="cover"
-          className="mb-4 w-full h-52 bg-black items-center justify-center"
-          source={banner}
-          style={{ width: '100%', height: 240 }} >
-          <BlurView intensity={Platform.OS === 'android' ? 100 : 25} tint="dark" className="w-full p-2 shadow-lg" >
-            <Text className="text-center text-3xl font-bold text-white">
-              Dine with your loved ones
-            </Text>
-          </BlurView>
-        </ImageBackground> */}
 
         <View className="p-4 bg-black flex-row items-center">
           <Text className="text-2xl text-white mr-2 font-semibold">Special Discount %</Text>
@@ -95,7 +84,7 @@ const Home = () => {
           <Text className="text-2xl text-[#1ED760] mr-2 font-semibold">Our Restaurants</Text>
         </View>
 
-        <View style={{ minHeight: 200 }}>
+        <View style={{ minHeight: 200, justifyContent: 'center', alignItems: 'center'  }}>
           <FlatList
             data={restaurants}
             renderItem={renderItem}
