@@ -17,7 +17,7 @@ export default function Landing() {
 
                     <ImageBackground
                         source={landing}
-                        style={{ width: 400, height: 150, alignSelf: 'center', justifyContent: 'center', alignItems: 'center'}}
+                        style={{ width: 400, height: 150, alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }}
                         imageStyle={{ borderRadius: 10, opacity: 0.3 }} >
 
                         <Text className="text-7xl font-bold text-black" style={{

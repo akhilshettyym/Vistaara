@@ -84,7 +84,7 @@ const Home = () => {
           <Text className="text-2xl text-[#1ED760] mr-2 font-semibold">Our Restaurants</Text>
         </View>
 
-        <View style={{ minHeight: 200, justifyContent: 'center', alignItems: 'center'  }}>
+        <View style={{ minHeight: 200, justifyContent: 'center', alignItems: 'center' }}>
           <FlatList
             data={restaurants}
             renderItem={renderItem}
