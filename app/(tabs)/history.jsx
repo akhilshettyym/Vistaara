@@ -2,6 +2,7 @@ import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useRouter } from 'expo-router';
+import { getFirestore } from "firebase/firestore";
 
 const history = () => {
   const [userEmail, setUserEmail] = useState(null);
@@ -45,7 +46,7 @@ const history = () => {
 
   if(loading){
     return (
-      <SafeAreaView className="flex-1 justify-center items-center bg-[#2b2b2b"> 
+      <SafeAreaView className="flex-1 justify-center items-center bg-[#2b2b2b]"> 
         <Text>Loading...</Text>
       </SafeAreaView>
     )
@@ -59,7 +60,7 @@ const history = () => {
         refreshing={loading}
         keyExtractor={(item) => item.id}
         renderItem={({item}) => (
-          <View className="p-4 border-b border-[#fb9b33]">
+          <View className="p-4 border-b border-[#1ED760]">
             <Text className="text-white"> Date: {item.date}</Text>
             <Text className="text-white"> Slot: {item.slot}</Text>
             <Text className="text-white"> Guests: {item.guests}</Text>
@@ -70,7 +71,7 @@ const history = () => {
         <View className="flex-1 justify-center items-center">
           <Text className="text-white mb-4">Please sign in to view your booking history</Text>
           <TouchableOpacity onPress={() => router.push("/signin")}
-            className="p-2 my-2 bg-[#f49b33]">
+            className="p-2 my-2 bg-[#1ED760]">
             <Text className="text-lg font-semibold text-center"> Sign In</Text>
           </TouchableOpacity>
           </View>)
