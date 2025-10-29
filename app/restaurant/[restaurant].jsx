@@ -8,6 +8,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import Entypo from '@expo/vector-icons/Entypo';
 import test from '../../assets/images/landing.jpeg'; // Change req
 import DatePicker from '../../components/restaurant/datePicker';
+import GuestPicker from '../../components/restaurant/GuestPicker';
+import FindSlots from '../../components/restaurant/FindSlots';
 
 const Restaurant = () => {
     const { restaurant } = useLocalSearchParams();
@@ -17,11 +19,13 @@ const Restaurant = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const [date, setDate] = useState(new Date());
-    const [selectedNumber, setSelectedNumber] = useState(2)
-
+    
     const [restaurantData, setRestaurantData] = useState({});
     const [carouselData, setCarouselData] = useState({});
+    
+    const [selectedNumber, setSelectedNumber] = useState(2)
     const [slotsData, setSlotsData] = useState({});
+    const [selectedSlot, setSelectedSlot] = useState(null);
 
     const handleNextImage = () => {
         const carouselLength = carouselData[0]?.images.length;
@@ -173,7 +177,7 @@ const Restaurant = () => {
                     </Text>
                 </View>
 
-                <View>
+                <View className="border m-2 p-2 border-[#1ED760] rounded-lg">
                     <View className="flex-1 flex-row m-2 p-2 justify-end items-center">
                         <View className="flex-1 flex-row">
                             <Ionicons name="calendar" size={24} color="#1ED760" />
@@ -182,14 +186,19 @@ const Restaurant = () => {
                         <DatePicker date={date} setDate={setDate} />
                     </View>
 
-                    <View className="flex-1 flex-row m-2 p-2 justify-end items-center">
+                    <View className="flex-1 flex-row m-2 bg-[#474747] rounded-lg p-2 justify-end items-center">
                         <View className="flex-1 flex-row">
-                            <Ionicons name="calendar" size={24} color="#1ED760" />
+                            <Ionicons name="people" size={24} color="#1ED760" />
                             <Text className="text-white mx-2 text-base"> Select number of guests </Text>
                         </View>
-                        {/* <DatePicker selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber} /> */}
+                        <GuestPicker selectedNumber={selectedNumber} setSelectedNumber={setSelectedNumber} />
                     </View>
                 </View>
+                
+                <View className="flex-1">
+                    <FindSlots />
+                </View>
+
             </ScrollView>
         </SafeAreaView>
     )
