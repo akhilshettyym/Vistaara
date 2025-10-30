@@ -199,7 +199,7 @@ const Restaurant = () => {
                 </View>
 
                 <View>
-                    <FindSlots date={date} selectedNumber={selectedNumber} slots={slotsData} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} />
+                    <FindSlots date={date} selectedNumber={selectedNumber} slots={slotsData} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} restaurant={restaurant} />
                 </View>
 
             </ScrollView>

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '../../config/firebaseConfig';
 import { useRouter } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // import { restaurants } from '../../store/restaurants';
 // import uploadData from '../../config/bulkUpload';
@@ -17,6 +18,9 @@ const Home = () => {
 
   const router = useRouter();
   const [restaurants, setRestaurants] = useState([]);
+
+  // const value = await AsyncStorage.getItem("userEmail");
+
 
   const getRestaurants = async () => {
     const q = query(collection(db, "restaurants"));

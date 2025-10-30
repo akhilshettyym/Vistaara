@@ -1,7 +1,10 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Alert } from 'react-native'
 import React, { useState } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../../config/firebaseConfig';
 
-const FindSlots = ({ date, selectedNumber, slots, selectedSlot, setSelectedSlot }) => {
+const FindSlots = ({ date, selectedNumber, slots, selectedSlot, setSelectedSlot, restaurant }) => {
   const [slotsVisible, setSlotsVisible] = useState(false);
 
   const handlePress = () => {
@@ -18,6 +21,25 @@ const FindSlots = ({ date, selectedNumber, slots, selectedSlot, setSelectedSlot 
     }
   }
 
+  const handleBooking = async() => {
+    const userEmail = await AsyncStorage.getItem("userEmail");
+
+    if(userEmail){
+      try {
+        await addDoc(collection(db, "bookings"),{
+          email: userEmail,
+          slot: selectedSlot,
+          date: date.toISOString(),
+          guests: selectedNumber,
+          restaurant: restaurant
+        });
+        Alert.alert("No Account", "No account found with this email. Please sign up first.");
+      } catch (error) {
+        
+      }
+    }
+  }
+
   return (
     <View className="flex-1">
       <View className={`flex ${selectedSlot != null && "flex-row"}`}>
@@ -30,7 +52,7 @@ const FindSlots = ({ date, selectedNumber, slots, selectedSlot, setSelectedSlot 
 
         {selectedSlot != null && (
           <View className="flex-1">
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleBooking}>
               <Text className="text-center text-lg font-bold bg-[#1ED760] p-2 my-3 mx-2 rounded-lg">Book Slots</Text>
             </TouchableOpacity>
           </View>
