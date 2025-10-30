@@ -4,13 +4,52 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import { Formik } from "formik"
 import validationSchema from "../../utils/authSchema"
 import bg from "../../assets/images/bg.jpeg"
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
+import { doc, getDoc, getFirestore } from "firebase/firestore"
 
 const Signin = () => {
-    const router = useRouter()
+    const router = useRouter();
+        const auth = getAuth();
+        const db = getFirestore();
 
-    const handleSignin = (values) => {
-        console.log("Signin form values:", values)
-    }
+    const handleSignin = async (values) => {
+        setLoading(true);
+        try {
+            const userCredentials = await signInWithEmailAndPassword(
+                auth, values.email, values.password
+            );
+
+            const user = userCredentials.user;
+
+            await getDoc(doc(db, "users", user.uid), {
+                name: values.name,
+                email: values.email,
+                password: values.password,
+                createdAt: new Date(),
+            });
+
+            await AsyncStorage.setItem("userEmail", values.email);
+            router.push("/home");
+
+        } catch (error) {
+            // console.log("TEST", error.code)
+            if (error.code === "auth/email-already-in-use") {
+                Alert.alert(
+                    "Signup Failed!",
+                    "This email address is already in use. Please use a different email.",
+                    [{ text: "OK" }]
+                );
+            } else {
+                Alert.alert(
+                    "Signup Error!",
+                    "An unexpected error occurred. Please try again later.",
+                    [{ text: "OK" }]
+                );
+            }
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <SafeAreaView className="bg-[#000000] flex-1">
