@@ -28,7 +28,7 @@ const Signup = () => {
             await setDoc(doc(db, "users", user.uid), {
                 name: values.name,
                 email: values.email,
-                password: values.password,
+                // password: values.password,
                 createdAt: new Date(),
             });
 
@@ -36,16 +36,16 @@ const Signup = () => {
             router.push("/home");
 
         } catch (error) {
-            // console.log("TEST", error.code)
+            console.log("TEST", error.code)
             if (error.code === "auth/email-already-in-use") {
                 Alert.alert(
-                    "Signup Failed!",
+                    "Sign-Up Failed!",
                     "This email address is already in use. Please use a different email.",
                     [{ text: "OK" }]
                 );
             } else {
                 Alert.alert(
-                    "Signup Error!",
+                    "Sign-Up Error!",
                     "An unexpected error occurred. Please try again later.",
                     [{ text: "OK" }]
                 );
