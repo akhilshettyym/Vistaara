@@ -21,7 +21,6 @@ const Home = () => {
 
   // const value = await AsyncStorage.getItem("userEmail");
 
-
   const getRestaurants = async () => {
     const q = query(collection(db, "restaurants"));
     const res = await getDocs(q);
