@@ -25,4 +25,4 @@ const GuestPicker = ({ selectedNumber, setSelectedNumber }) => {
     )
 }
 
-export default GuestPicker
+export default GuestPicker;

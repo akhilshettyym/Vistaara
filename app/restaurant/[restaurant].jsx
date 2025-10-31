@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, Platform, FlatList, Dimensions, Image, Linking } from 'react-native'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocalSearchParams } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { collection, getDocs, query, where } from 'firebase/firestore';
