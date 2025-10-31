@@ -48,7 +48,7 @@ const history = () => {
   if (loading) {
     return (
       <SafeAreaView className="flex-1 justify-center items-center bg-[#2b2b2b]">
-        <Text>Loading...</Text>
+        <Text className="text-white">Loading...</Text>
       </SafeAreaView>
     )
   }
