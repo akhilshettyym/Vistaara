@@ -38,11 +38,10 @@ const profile = () => {
       </Text>
       {userEmail ? (
         <>
-          <Text className="text-white text-lg mb-6">Email: {userEmail}</Text>{" "}
+          <Text className="text-white text-lg mb-6">Email: {userEmail}</Text>
           <TouchableOpacity
             onPress={handleLogout}
-            className="p-2 my-2 bg-[#1ED760]  text-black rounded-lg mt-10"
-          >
+            className="p-2 my-2 bg-[#1ED760]  text-black rounded-lg mt-10" >
             <Text className="text-lg font-semibold text-center">Logout</Text>
           </TouchableOpacity>
         </>
@@ -50,8 +49,7 @@ const profile = () => {
         <>
           <TouchableOpacity
             onPress={handleSignup}
-            className="p-2 my-2 bg-[#1ED760]  text-black rounded-lg mt-10"
-          >
+            className="p-2 my-2 bg-[#1ED760]  text-black rounded-lg mt-10" >
             <Text className="text-lg font-semibold text-center">Sign Up</Text>
           </TouchableOpacity>
         </>

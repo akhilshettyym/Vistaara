@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '../../config/firebaseConfig';
 import { useRouter } from 'expo-router';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // import { restaurants } from '../../store/restaurants';
 // import uploadData from '../../config/bulkUpload';

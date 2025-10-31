@@ -2,7 +2,7 @@ import { View, Text, FlatList, TouchableOpacity, Alert } from 'react-native'
 import { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useRouter } from 'expo-router';
-import { getFirestore } from "firebase/firestore";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const history = () => {
@@ -31,7 +31,8 @@ const history = () => {
           id: doc.id,
           ...doc.data()
         }));
-        setBookings(bookingList)
+        setBookings(bookingList);
+        // console.log("BOOKING", bookingList);
       } catch (error) {
         Alert.alert("Error", "Could not fetch bookings")
       }
@@ -61,13 +62,28 @@ const history = () => {
           refreshing={loading}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <View className="p-4 border-b border-[#1ED760]">
-              <Text className="text-white"> Date: {item.date}</Text>
-              <Text className="text-white"> Slot: {item.slot}</Text>
-              <Text className="text-white"> Guests: {item.guests}</Text>
-              <Text className="text-white"> Restaurant: {item.restaurant}</Text>
-              <Text className="text-white"> Email: {item.email}</Text>
+            <View className="border border-[#1ED760] p-2 m-4 rounded-lg space-y-2">
+              {[
+                { label: 'Date', value: new Date(item.date).toLocaleDateString() },
+                { label: 'Slot', value: item.slot },
+                { label: 'Guests', value: item.guests },
+                { label: 'Restaurant', value: item.restaurant },
+                { label: 'Email', value: item.email },
+              ].map((field, i) => (
+                <View key={i} className="flex-row items-center">
+                  <Text
+                    className="text-[#1ED760] font-semibold text-left"
+                    style={{ width: 100 }}
+                  >
+                    {field.label}:
+                  </Text>
+                  <Text className="text-white ml-3 flex-1">
+                    {field.value}
+                  </Text>
+                </View>
+              ))}
             </View>
+
           )} />) : (
           <View className="flex-1 justify-center items-center">
             <Text className="text-white mb-4">Please sign in to view your booking history</Text>
@@ -81,4 +97,4 @@ const history = () => {
   )
 }
 
-export default history
+export default history;

@@ -34,6 +34,7 @@ const Signin = () => {
             }
 
             await AsyncStorage.setItem("userEmail", values.email);
+            await AsyncStorage.setItem("isGuest", "false");
             router.push("/home");
 
         } catch (error) {
@@ -88,7 +89,7 @@ const Signin = () => {
                             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                                 <>
 
-                                    <Text className="text-[#1ED760] mt-2 mb-2 font-semibold"> *Email </Text>
+                                    <Text className="text-[#1ED760] mt-2 mb-2 font-semibold"> Email * </Text>
                                     <TextInput
                                         className="h-11 border border-white text-white rounded px-2 bg-white/10"
                                         keyboardType="email-address"
@@ -101,7 +102,7 @@ const Signin = () => {
                                         <Text className="text-white font-semibold text-xs mt-1 bg-red-50 dark:bg-red-900 dark:bg-opacity-50 px-2 py-1 rounded border border-red-200 dark:border-red-500"> {errors.email} </Text>
                                     )}
 
-                                    <Text className="text-[#1ED760] mt-4 mb-2 font-semibold"> *Password </Text>
+                                    <Text className="text-[#1ED760] mt-4 mb-2 font-semibold"> Password * </Text>
                                     <TextInput
                                         className="h-11 border border-white text-white rounded px-2 bg-white/10"
                                         secureTextEntry
