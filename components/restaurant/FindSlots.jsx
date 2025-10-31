@@ -1,11 +1,4 @@
-import { View, Text, TouchableOpacity, Alert, ActivityIndicator, Modal, TextInput } from "react-native";
-import { useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../config/firebaseConfig";
-import { Formik } from "formik";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import validationSchema from "../../utils/guestForm";
+import { View, Text, TouchableOpacity, Alert, ActivityIndicator, Modal, TextInput, useState, AsyncStorage, addDoc, collection, db, Formik, Ionicons, validationSchema } from "../../constants/Imports"
 
 const FindSlots = ({ date, selectedNumber, slots, selectedSlot, setSelectedSlot, restaurant }) => {
   const [slotsVisible, setSlotsVisible] = useState(false);

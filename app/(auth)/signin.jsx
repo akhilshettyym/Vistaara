@@ -1,13 +1,4 @@
-import { Alert, ImageBackground, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View, ActivityIndicator } from "react-native";
-import { useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Formik } from "formik";
-import { signinSchema } from "../../utils/authSchema";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
-import bg from "../../assets/images/bg.jpeg";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useState } from "react";
+import { Alert, ImageBackground, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View, ActivityIndicator, useRouter, SafeAreaView, Formik, signinSchema, getAuth, signInWithEmailAndPassword, doc, getDoc, getFirestore, bg, AsyncStorage, useState } from "../../constants/Imports"
 
 const Signin = () => {
     const router = useRouter();
@@ -39,7 +30,7 @@ const Signin = () => {
 
         } catch (error) {
             if (error.code === "auth/invalid-credential") {
-                
+
                 Alert.alert("Sign-In Failed!",
                     "Incorrect email or password. Please try again.",
                     [{ text: "OK" }]

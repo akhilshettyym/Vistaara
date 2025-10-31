@@ -1,8 +1,5 @@
-import { StatusBar, Text, TouchableOpacity, View, ImageBackground } from "react-native"
-import { useRouter } from "expo-router"
-import { SafeAreaView } from "react-native-safe-area-context"
-import { LinearGradient } from "expo-linear-gradient"
-import landing from "../assets/images/landing.jpeg"
+import { StatusBar, Text, TouchableOpacity, View, ImageBackground, useRouter, SafeAreaView, LinearGradient, landing } from "../constants/Imports";
+
 export default function Landing() {
     const router = useRouter()
 

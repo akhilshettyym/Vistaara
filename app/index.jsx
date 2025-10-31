@@ -1,5 +1,5 @@
-import React from 'react'
-import Landing from './landing';
+
+import { React, Landing } from "../constants/Imports";
 
 const index = () => {
   return (

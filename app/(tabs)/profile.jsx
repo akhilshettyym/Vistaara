@@ -1,8 +1,4 @@
-import { View, Text, TouchableOpacity, Alert } from "react-native";
-import { useEffect, useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useRouter } from "expo-router";
-import { getAuth, signOut } from "firebase/auth";
+import { View, Text, TouchableOpacity, Alert, useEffect, useState, AsyncStorage, useRouter, getAuth, signOut } from "../../constants/Imports";
 
 const profile = () => {
   const router = useRouter();

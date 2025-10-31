@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity } from '../../constants/Imports'
 
 const GuestPicker = ({ selectedNumber, setSelectedNumber }) => {
 

@@ -1,13 +1,6 @@
-import { Image, View, Text, Platform, ScrollView, ImageBackground, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { BlurView } from 'expo-blur';
-import landing from '../../assets/images/landing.jpeg'; // Change required
-import { useEffect, useState } from 'react';
-import { collection, getDocs, query } from 'firebase/firestore';
-import { db } from '../../config/firebaseConfig';
-import { useRouter } from 'expo-router';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Image, View, Text, Platform, ScrollView, ImageBackground, FlatList, ActivityIndicator, TouchableOpacity, SafeAreaView, BlurView, landing, useEffect, useState, collection, getDocs, query, db, useRouter } from "../../constants/Imports";
 
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 // import { restaurants } from '../../store/restaurants';
 // import uploadData from '../../config/bulkUpload';
 

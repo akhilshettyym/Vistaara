@@ -1,13 +1,4 @@
-import { Alert, ImageBackground, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View, ActivityIndicator } from "react-native";
-import { useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Formik } from "formik";
-import { signupSchema } from "../../utils/authSchema";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import bg from "../../assets/images/bg.jpeg";
-import { doc, getFirestore, setDoc } from "firebase/firestore";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useState } from "react";
+import { Alert, ImageBackground, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View, ActivityIndicator, useRouter, SafeAreaView, Formik, signupSchema, createUserWithEmailAndPassword, getAuth, bg, doc, getFirestore, setDoc, AsyncStorage, useState } from "../../constants/Imports";
 
 const Signup = () => {
     const router = useRouter();

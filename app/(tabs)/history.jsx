@@ -1,9 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity, Alert } from 'react-native'
-import { useEffect, useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { useRouter } from 'expo-router';
-import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { View, Text, FlatList, TouchableOpacity, Alert, useEffect, useState, SafeAreaView, useRouter, collection, getDocs, getFirestore, query, where, AsyncStorage } from "../../constants/Imports";
 
 const history = () => {
   const [userEmail, setUserEmail] = useState(null);

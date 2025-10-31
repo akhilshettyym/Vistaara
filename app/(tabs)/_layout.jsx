@@ -1,8 +1,10 @@
-import { Tabs } from 'expo-router';
-import { Colors } from '../../assets/Colors';
-import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
-import { TouchableOpacity } from 'react-native';
+// import { Tabs } from 'expo-router';
+// import { Colors } from '../../assets/Colors';
+// import { Ionicons } from '@expo/vector-icons';
+// import { useRouter } from 'expo-router';
+// import { TouchableOpacity } from 'react-native';
+
+import { Tabs, Colors, Ionicons, useRouter, TouchableOpacity } from "../../constants/Imports"
 
 const TabLayout = () => {
     const router = useRouter();

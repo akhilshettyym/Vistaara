@@ -1,6 +1,4 @@
-import { View, Text, TouchableOpacity, Platform } from 'react-native'
-import DateTimePicker from '@react-native-community/datetimepicker'
-import { useState } from 'react';
+import { View, Text, TouchableOpacity, Platform, DateTimePicker, useState } from "../../constants/Imports";
 
 const DatePicker = ({ date, setDate }) => {
 

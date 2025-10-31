@@ -1,15 +1,4 @@
-import { View, Text, ScrollView, Platform, FlatList, Dimensions, Image, Linking } from 'react-native'
-import { useEffect, useRef, useState } from 'react'
-import { useLocalSearchParams } from 'expo-router'
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../../config/firebaseConfig';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import Entypo from '@expo/vector-icons/Entypo';
-import test from '../../assets/images/landing.jpeg'; // Change req
-import DatePicker from '../../components/restaurant/DatePicker';
-import GuestPicker from '../../components/restaurant/GuestPicker';
-import FindSlots from '../../components/restaurant/FindSlots';
+import { View, Text, ScrollView, Platform, FlatList, Dimensions, Image, Linking, useEffect, useRef, useState, useLocalSearchParams, SafeAreaView, collection, getDocs, query, where, db, Ionicons, Entypo, test, DatePicker, GuestPicker, FindSlots } from "../../constants/Imports";
 
 const Restaurant = () => {
     const { restaurant } = useLocalSearchParams();
