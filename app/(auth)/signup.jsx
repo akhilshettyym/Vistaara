@@ -1,5 +1,3 @@
-"use client"
-
 import { Alert, ImageBackground, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View, ActivityIndicator, useRouter, SafeAreaView, Formik, signupSchema, createUserWithEmailAndPassword, getAuth, bg, doc, getFirestore, setDoc, AsyncStorage, useState, useEffect } from "../../constants/Imports"
 
 const Signup = () => {
