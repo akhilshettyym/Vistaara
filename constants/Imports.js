@@ -25,13 +25,13 @@ import { LinearGradient } from "expo-linear-gradient"
 import test from "../assets/images/landing.jpeg" // Change req
 import landing from "../assets/images/landing.jpeg" // Change required
 
-export { 
-    bg, test, React, useRef, landing,
+export {
+    bg, test, React, landing,
 
     db, Tabs, Colors, signupSchema, SafeAreaView, signinSchema, AsyncStorage, DateTimePicker, validationSchema, TouchableOpacity,
 
     View, Text, Alert, Modal, Image, Entypo, Linking, FlatList, Ionicons, Platform, BlurView, StatusBar, TextInput, Dimensions, ScrollView, LinearGradient, ImageBackground, ActivityIndicator,
 
 
-    doc, query, where, setDoc, addDoc, Formik, getDoc, getAuth, getDocs, Landing, signOut, useState, useRouter, FindSlots, useEffect, collection, DatePicker, GuestPicker, getFirestore, useLocalSearchParams, signInWithEmailAndPassword, createUserWithEmailAndPassword
+    doc, query, where, setDoc, addDoc, useRef, Formik, getDoc, getAuth, getDocs, Landing, signOut, useState, useRouter, FindSlots, useEffect, collection, DatePicker, GuestPicker, getFirestore, useLocalSearchParams, signInWithEmailAndPassword, createUserWithEmailAndPassword
 }
