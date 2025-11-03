@@ -1,29 +1,6 @@
 "use client"
 
-import {
-  Alert,
-  ImageBackground,
-  ScrollView,
-  StatusBar,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-  ActivityIndicator,
-  useRouter,
-  SafeAreaView,
-  Formik,
-  signinSchema,
-  getAuth,
-  signInWithEmailAndPassword,
-  doc,
-  getDoc,
-  getFirestore,
-  bg,
-  AsyncStorage,
-  useState,
-  useEffect,
-} from "../../constants/Imports"
+import { Alert, ImageBackground, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View, ActivityIndicator, useRouter, SafeAreaView, Formik, signinSchema, getAuth, signInWithEmailAndPassword, doc, getDoc, getFirestore, bg,  AsyncStorage, useState, useEffect } from "../../constants/Imports"
 
 const Signin = () => {
   const router = useRouter()
@@ -36,7 +13,6 @@ const Signin = () => {
       try {
         const isGuest = await AsyncStorage.getItem("isGuest")
         if (isGuest === "true") {
-          // Clear guest session on refresh
           await AsyncStorage.removeItem("isGuest")
           await AsyncStorage.removeItem("userEmail")
         }
@@ -148,7 +124,7 @@ const Signin = () => {
                   <TouchableOpacity
                     onPress={loading ? undefined : handleSubmit}
                     disabled={loading}
-                    className={`p-3 rounded-lg mt-8 ${loading ? "bg-gray-400" : "bg-[#1ED760]"}`}
+                    className={`p-3 rounded-lg mt-8 ${loading ? "bg-[#4DE57C]" : "bg-[#1ED760]"}`}
                   >
                     {loading ? (
                       <ActivityIndicator color="#000" />
