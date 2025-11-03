@@ -1,6 +1,6 @@
 "use client"
 
-import { Alert, ImageBackground, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View, ActivityIndicator, useRouter, SafeAreaView, Formik, signinSchema, getAuth, signInWithEmailAndPassword, doc, getDoc, getFirestore, bg,  AsyncStorage, useState, useEffect } from "../../constants/Imports"
+import { Alert, ImageBackground, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View, ActivityIndicator, useRouter, SafeAreaView, Formik, signinSchema, getAuth, signInWithEmailAndPassword, doc, getDoc, getFirestore, bg, AsyncStorage, useState, useEffect } from "../../constants/Imports"
 
 const Signin = () => {
   const router = useRouter()
@@ -44,8 +44,10 @@ const Signin = () => {
       router.push("/home")
     } catch (error) {
       if (error.code === "auth/invalid-credential") {
+        alert("Sign-In Failed!");
         Alert.alert("Sign-In Failed!", "Incorrect email or password. Please try again.", [{ text: "OK" }])
       } else {
+        alert("Sign-In Error!");
         Alert.alert("Sign-In Error!", error.message ?? "Something went wrong. Please try again later.", [
           { text: "OK" },
         ])

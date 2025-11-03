@@ -33,6 +33,7 @@ const Signup = () => {
       await AsyncStorage.setItem("isGuest", "true")
       router.push("/home")
     } catch (error) {
+      alert("Guest Error!");
       Alert.alert("Guest Error!", error.message ?? "An unexpected error occurred. Please try again later.", [
         { text: "OK" },
       ])
@@ -55,10 +56,12 @@ const Signup = () => {
       router.push("/home")
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
+        alert("Signup Failed!");
         Alert.alert("Signup Failed!", "This email address is already in use. Please use a different email.", [
           { text: "OK" },
         ])
       } else {
+        alert("Signup Error!");
         Alert.alert("Signup Error!", error.message ?? "An unexpected error occurred. Please try again later.", [
           { text: "OK" },
         ])
@@ -92,13 +95,18 @@ const Signup = () => {
             alignItems: "center",
             paddingVertical: 30,
           }}
-          imageStyle={{ borderRadius: 30, opacity: 0.85 }}
-        >
+          imageStyle={{ borderRadius: 30, opacity: 0.85 }}>
           <View className="absolute inset-0 bg-black/40" />
 
           <View className="w-80">
+
             <Formik
-              initialValues={{ name: "", email: "", password: "" }}
+              initialValues={{
+                name: "",
+                email: "",
+                password: "",
+                confirmPassword: ""
+              }}
               validationSchema={signupSchema}
               onSubmit={handleSignup}
             >
@@ -115,8 +123,7 @@ const Signup = () => {
                   />
                   {touched.name && errors.name && (
                     <Text className="text-white font-semibold text-xs mt-1 bg-red-50 dark:bg-red-900 dark:bg-opacity-50 px-2 py-1 rounded border border-red-200 dark:border-red-500">
-                      {" "}
-                      {errors.name}{" "}
+                      {errors.name}
                     </Text>
                   )}
 
@@ -132,8 +139,7 @@ const Signup = () => {
                   />
                   {touched.email && errors.email && (
                     <Text className="text-white font-semibold text-xs mt-1 bg-red-50 dark:bg-red-900 dark:bg-opacity-50 px-2 py-1 rounded border border-red-200 dark:border-red-500">
-                      {" "}
-                      {errors.email}{" "}
+                      {errors.email}
                     </Text>
                   )}
 
@@ -149,8 +155,23 @@ const Signup = () => {
                   />
                   {touched.password && errors.password && (
                     <Text className="text-white font-semibold text-xs mt-1 bg-red-50 dark:bg-red-900 dark:bg-opacity-50 px-2 py-1 rounded border border-red-200 dark:border-red-500">
-                      {" "}
-                      {errors.password}{" "}
+                      {errors.password}
+                    </Text>
+                  )}
+
+                  <Text className="text-[#1ED760] mt-4 mb-2 font-semibold"> Confirm Password * </Text>
+                  <TextInput
+                    className="h-11 border border-white text-white rounded px-2 bg-white/10"
+                    secureTextEntry
+                    onChangeText={handleChange("confirmPassword")}
+                    value={values.confirmPassword}
+                    onBlur={handleBlur("confirmPassword")}
+                    placeholder="Confirm your password"
+                    placeholderTextColor="#ccc"
+                  />
+                  {touched.confirmPassword && errors.confirmPassword && (
+                    <Text className="text-white font-semibold text-xs mt-1 bg-red-50 dark:bg-red-900 dark:bg-opacity-50 px-2 py-1 rounded border border-red-200 dark:border-red-500">
+                      {errors.confirmPassword}
                     </Text>
                   )}
 
