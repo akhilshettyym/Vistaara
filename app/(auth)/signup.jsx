@@ -157,7 +157,7 @@ const Signup = () => {
                   <TouchableOpacity
                     onPress={loading ? undefined : handleSubmit}
                     disabled={loading}
-                    className={`p-3 rounded-lg mt-8 ${loading ? "bg-gray-400" : "bg-[#1ED760]"}`}
+                    className={`p-3 rounded-lg mt-8 ${loading ? "bg-[#4DE57C]" : "bg-[#1ED760]"}`}
                   >
                     {loading ? (
                       <ActivityIndicator color="#000" />
