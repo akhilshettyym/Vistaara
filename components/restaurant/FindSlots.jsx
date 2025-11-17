@@ -46,7 +46,6 @@ const FindSlots = ({ date, selectedNumber, slots, selectedSlot, setSelectedSlot,
         guests: selectedNumber,
         restaurant,
       });
-
       Alert.alert("Success", "Your slot has been booked successfully!");
     } catch (error) {
       console.error(error);
@@ -68,7 +67,6 @@ const FindSlots = ({ date, selectedNumber, slots, selectedSlot, setSelectedSlot,
         restaurant,
         isGuest: true,
       });
-
       Alert.alert("Success", "Your slot has been booked successfully!");
       resetForm();
       setModalVisible(false);
