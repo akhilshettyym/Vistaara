@@ -1,5 +1,3 @@
-"use client"
-
 import { View, Text, TouchableOpacity, Alert, useEffect, useState, AsyncStorage, useRouter, getAuth, signOut } from "../../constants/Imports";
 
 const profile = () => {

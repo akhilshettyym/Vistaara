@@ -108,6 +108,7 @@ const restaurants = [
         seats: 120,
     },
 ];
+
 const carouselImages = [
     {
         images: [

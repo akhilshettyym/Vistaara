@@ -17,7 +17,7 @@ import { Tabs, useLocalSearchParams } from "expo-router"
 import { Colors } from "../assets/Colors"
 import { BlurView } from "expo-blur"
 import Entypo from "@expo/vector-icons/Entypo"
-import DatePicker from "../components/restaurant/datePicker"
+import DatePicker from "../components/restaurant/DatePicker"
 import GuestPicker from "../components/restaurant/GuestPicker"
 import FindSlots from "../components/restaurant/FindSlots"
 import Landing from "../app/landing"
@@ -31,7 +31,6 @@ export {
     db, Tabs, Colors, signupSchema, SafeAreaView, signinSchema, AsyncStorage, DateTimePicker, validationSchema, TouchableOpacity,
 
     View, Text, Alert, Modal, Image, Entypo, Linking, FlatList, Ionicons, Platform, BlurView, StatusBar, TextInput, Dimensions, ScrollView, LinearGradient, ImageBackground, ActivityIndicator,
-
 
     doc, query, where, setDoc, addDoc, useRef, Formik, getDoc, getAuth, getDocs, Landing, signOut, useState, useRouter, FindSlots, useEffect, collection, DatePicker, GuestPicker, getFirestore, useLocalSearchParams, signInWithEmailAndPassword, createUserWithEmailAndPassword
 }
